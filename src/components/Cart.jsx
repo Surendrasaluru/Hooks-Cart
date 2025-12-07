@@ -1,6 +1,6 @@
-import CartItem, { cartItem } from "./CartItem";
+import CartItem from "./CartItem.jsx";
 
-const Cart = ({ cart, onUpdateQuantity, onRemove, total }) => {
+function Cart({ cart, onUpdateQuantity, onRemove, total }) {
   if (cart.length === 0) {
     return <div className="cart empty">Your cart is emptty</div>;
   }
@@ -16,14 +16,11 @@ const Cart = ({ cart, onUpdateQuantity, onRemove, total }) => {
         />
       ))}
       <div className="cart-total">
-        <h3>
-          Your total amount :RS
-          {typeof total === "string" ? total : total.toFixed(2)}
-        </h3>
+        <h3>Total: ${typeof total === "string" ? total : total.toFixed(2)}</h3>
         <button className="checkout-btn">checkout</button>
       </div>
     </div>
   );
-};
+}
 
 export default Cart;
